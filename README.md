@@ -14,30 +14,28 @@ Automate the whole clock-in and clock-out process using Python and run it on a R
 - ✅ Never forget again  
 - ✅ Actually get paid
 
-All hands-free. No coffee needed.
-
 ---
 
-## Why a Raspberry Pi?
+## Why an Old Laptop?
 
-I could’ve used my PC or phone, but they aren’t *always on*.
-My trusty Raspberry Pi 4B is already my media server why cant it also clock me in and out?
+I could’ve used my PC or phone but let’s be real, they’re not always on.
+Then I remembered the dusty old laptop sitting in a drawer, still clinging to life. It’s not good for much these days but it can open a browser and tell my boss I showed up to work.
 
 ---
 
 ## The Tech Stack
-- 🐍 **Python 3** – scripting brains
+- 🐍 **Python** – scripting brains
 - 🧪 **Selenium** – to control the browser like a sleep-deprived intern
 - 🌐 **Chromium + ChromeDriver** – the actual browser doing the clicking
 - 🔐 **python-dotenv** – keeps my email & password out of the script
 - 🕰️ **cron** – so it runs itself every weekday, like magic
-- 🍓 **Raspberry Pi 4B** – my always-on automation buddy
+- 💻 **Old Laptop** – my dusty, half-retired, always-on automation sidekick
 
 ---
 
 ## Problems I Expected (and still might get)
 
-- **Headless Mode Drama** – If Deputy’s site doesn’t load right without a screen, I might need to fake one using `xvfb`.
+- **Headless Mode Drama** – ~~If Deputy’s site doesn’t load right without a screen, I might need to fake one using `xvfb`.~~ Just don't use headless mode.
 - **UI Changes** – If they redesign the button I click, everything breaks.
 - **Internet** – No Wi-Fi? No paycheck.
 

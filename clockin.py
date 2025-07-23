@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service as ChromeService
 from dotenv import load_dotenv
-import time
 import os
 import sys
 
@@ -58,8 +57,8 @@ try:
 
 except Exception as e:
     print("❌ Error:", e)
-    driver.save_screenshot("error_screenshot.png")
-    with open("error_page.html", "w", encoding="utf-8") as f:
+    driver.save_screenshot("logs/error_screenshot.png")
+    with open("logs/error_page.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)
 
 finally:
