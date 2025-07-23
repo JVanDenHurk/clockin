@@ -6,7 +6,7 @@ My boss told me that if I don’t clock in, I won’t get paid for the day. And 
 
 ## The Plan
 
-Automate the whole clock-in and clock-out process using Python and run it on a Raspberry Pi.
+Automate the whole clock-in and clock-out process using Python and run it on a Old Laptop.
 
 - ✅ Login to [Deputy](https://www.deputy.com)
 - ✅ Click "Start Shift" at 8:55 AM
