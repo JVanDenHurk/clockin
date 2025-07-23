@@ -52,6 +52,12 @@ Then I remembered the dusty old laptop sitting in a drawer, still clinging to li
     ```env
     DEPUTY_EMAIL=you@example.com
     DEPUTY_PASSWORD=SuperSecret123
+
+    ALERT_EMAIL_FROM=your_email@gmail.com
+    ALERT_EMAIL_PASSWORD=your_app_password
+    ALERT_EMAIL_TO=your_email@gmail.com
+    SMTP_SERVER=smtp.gmail.com
+    SMTP_PORT=587
     ```
 
 3. Add two cronjobs:
@@ -69,6 +75,6 @@ Then I remembered the dusty old laptop sitting in a drawer, still clinging to li
 
 - Add a web interface to manage users (like a real app)
 - Log shift data somewhere
-- Make it yell at me if it fails
+- ~~Make it yell at me if it fails~~ ✅ It emails me now if something breaks
 
 ---

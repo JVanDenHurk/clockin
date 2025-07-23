@@ -7,11 +7,43 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from dotenv import load_dotenv
 import os
 import sys
+import smtplib
+from email.message import EmailMessage
 
-# STEP 0: Load credentials from .env
+# STEP 0: Load credentials from .env and error handling
 load_dotenv()
 EMAIL = os.getenv("DEPUTY_EMAIL")
 PASSWORD = os.getenv("DEPUTY_PASSWORD")
+
+ALERT_EMAIL_FROM = os.getenv("ALERT_EMAIL_FROM")
+ALERT_EMAIL_PASSWORD = os.getenv("ALERT_EMAIL_PASSWORD")
+ALERT_EMAIL_TO = os.getenv("ALERT_EMAIL_TO")
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+
+def send_error_email(error_message, screenshot_path):
+    msg = EmailMessage()
+    msg['Subject'] = 'Clockin Script Error Alert'
+    msg['From'] = ALERT_EMAIL_FROM
+    msg['To'] = ALERT_EMAIL_TO
+    msg.set_content(f"Your clockin script failed with the following error:\n\n{error_message}")
+
+    # Attach screenshot
+    try:
+        with open(screenshot_path, 'rb') as f:
+            img_data = f.read()
+            msg.add_attachment(img_data, maintype='image', subtype='png', filename='error_screenshot.png')
+    except Exception as e:
+        print(f"⚠️ Could not attach screenshot: {e}")
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+            smtp.starttls()
+            smtp.login(ALERT_EMAIL_FROM, ALERT_EMAIL_PASSWORD)
+            smtp.send_message(msg)
+            print("📧 Error email sent successfully.")
+    except Exception as e:
+        print(f"❌ Failed to send error email: {e}")
 
 # STEP 1: Suppress TensorFlow/Chrome/Selenium logs
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
@@ -54,12 +86,14 @@ try:
     start_shift_btn.click()
     print("▶️ 'Start Shift' button clicked.")
 
-
 except Exception as e:
     print("❌ Error:", e)
     driver.save_screenshot("logs/error_screenshot.png")
     with open("logs/error_page.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)
+
+    # Send the error email
+    send_error_email(str(e), "logs/error_screenshot.png")
 
 finally:
     driver.quit()
