@@ -26,7 +26,7 @@ Then I remembered the dusty old laptop sitting in a drawer, still clinging to li
 ## The Tech Stack
 - 🐍 **Python** – scripting brains
 - 🧪 **Selenium** – to control the browser like a sleep-deprived intern
-- 🌐 **Chromium + ChromeDriver** – the actual browser doing the clicking
+- 🌐 **Chrome + ChromeDriver** – the actual browser doing the clicking
 - 🔐 **python-dotenv** – keeps my email & password out of the script
 - 🕰️ **cron** – so it runs itself every weekday, like magic
 - 💻 **Old Laptop** – my dusty, half-retired, always-on automation sidekick
