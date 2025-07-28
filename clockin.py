@@ -21,6 +21,13 @@ ALERT_EMAIL_TO = os.getenv("ALERT_EMAIL_TO")
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 
+LOG_DIR = "logs"
+SCREENSHOT_PATH = os.path.join(LOG_DIR, "error_screenshot.png")
+HTML_PATH = os.path.join(LOG_DIR, "error_page.html")
+
+# Ensure logs directory exists
+os.makedirs(LOG_DIR, exist_ok=True)
+
 def send_error_email(error_message, screenshot_path):
     msg = EmailMessage()
     msg['Subject'] = 'Clockin Script Error Alert'
@@ -49,11 +56,11 @@ def send_error_email(error_message, screenshot_path):
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
 
 options = webdriver.ChromeOptions()
-# options.add_argument("--headless")  # Uncomment to run in headless mode
+# options.add_argument("--headless")  # Uncomment to run headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
-options.add_argument("--log-level=3")  # Suppress logs
+options.add_argument("--log-level=3")
 
 driver = webdriver.Chrome(service=chrome_service, options=options)
 
@@ -81,27 +88,25 @@ try:
 
     # STEP 5: Click 'Start Shift'
     try:
-        start_shift_btn = WebDriverWait(driver, 30).until(
+        start_shift_btn = WebDriverWait(driver, 0.5).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-success.js-myWeek-startShift"))
         )
         start_shift_btn.click()
         print("▶️ 'Start Shift' button clicked.")
     except Exception as e:
         print("❌ Could not find or click 'Start Shift' button:", e)
-        driver.save_screenshot("logs/error_screenshot.png")
-        with open("logs/error_page.html", "w", encoding="utf-8") as f:
+        driver.save_screenshot(SCREENSHOT_PATH)
+        with open(HTML_PATH, "w", encoding="utf-8") as f:
             f.write(driver.page_source)
-        send_error_email(f"Could not find or click 'Start Shift': {e}", "logs/error_screenshot.png")
-        driver.quit()
+        send_error_email(f"Could not find or click 'Start Shift': {e}", SCREENSHOT_PATH)
         sys.exit(1)
 
 except Exception as e:
     print("❌ Error:", e)
-    driver.save_screenshot("logs/error_screenshot.png")
-    with open("logs/error_page.html", "w", encoding="utf-8") as f:
+    driver.save_screenshot(SCREENSHOT_PATH)
+    with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(driver.page_source)
-    send_error_email(str(e), "logs/error_screenshot.png")
-    driver.quit()
+    send_error_email(str(e), SCREENSHOT_PATH)
     sys.exit(1)
 
 finally:

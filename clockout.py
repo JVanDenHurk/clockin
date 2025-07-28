@@ -22,10 +22,13 @@ ALERT_EMAIL_TO = os.getenv("ALERT_EMAIL_TO")
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 
+# STEP 1: Ensure logs folder exists
+os.makedirs("logs", exist_ok=True)
+
 def send_error_email(error_message, screenshot_path):
     msg = EmailMessage()
     msg['Subject'] = 'Clockin Script Error Alert'
-    msg['From'] = ALERT_EMAIL_FROMs
+    msg['From'] = ALERT_EMAIL_FROM
     msg['To'] = ALERT_EMAIL_TO
     msg.set_content(f"Your clockin script failed with the following error:\n\n{error_message}")
 
@@ -58,7 +61,7 @@ def try_find_click(driver, by, selector, wait_time=0.5):
         print(f"⚠️ Failed to find/click element: {e}")
         raise  # Raise exception to signal failure
 
-# STEP 1: Set up Chrome driver
+# STEP 2: Set up Chrome driver
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
 
 options = webdriver.ChromeOptions()
@@ -66,16 +69,16 @@ options = webdriver.ChromeOptions()
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
-options.add_argument("--log-level=3")  # Suppress logs
+options.add_argument("--log-level=3")
 
 driver = webdriver.Chrome(service=chrome_service, options=options)
 
 try:
-    # STEP 2: Open login page
+    # STEP 3: Open login page
     driver.get("https://once.deputy.com/my/login?redirect_url=https%3A%2F%2Fvr.au.deputy.com&redirect_to_instance=1")
     print("🌐 Opened login page.")
 
-    # STEP 3: Enter email
+    # STEP 4: Enter email
     email_input = WebDriverWait(driver, 0.5).until(
         EC.element_to_be_clickable((By.ID, "login-email"))
     )
@@ -83,7 +86,7 @@ try:
     email_input.send_keys(EMAIL)
     print("✉️ Email entered.")
 
-    # STEP 4: Enter password
+    # STEP 5: Enter password
     password_input = WebDriverWait(driver, 0.5).until(
         EC.element_to_be_clickable((By.ID, "login-password"))
     )
@@ -92,26 +95,30 @@ try:
     password_input.send_keys(Keys.RETURN)
     print("🔑 Password entered and submitted.")
 
-    # STEP 5: Click 'End Shift' and confirm (one attempt each)
+    # STEP 6: Try clicking "End Shift" and confirm
     try:
         try_find_click(driver, By.CSS_SELECTOR, "button.btn.btn-danger.btn-wide.js-myWeek-endShift")
         try_find_click(driver, By.CSS_SELECTOR, "button.btn.btn-danger.js-MyWeek-Modal-SubmitShift")
     except Exception as e:
         print("❌ Could not find or click 'End Shift' button or confirm modal:", e)
         driver.save_screenshot("logs/error_screenshot.png")
-        with open("logs/error_page.html", "w", encoding="utf-8") as f:
-            f.write(driver.page_source)
-        send_error_email(f"Could not find or click 'End Shift' or confirm modal: {e}", "logs/error_screenshot.png")
-        driver.quit()
+        try:
+            with open("logs/error_page.html", "w", encoding="utf-8") as f:
+                f.write(driver.page_source or "<empty page source>")
+        except Exception as write_error:
+            print(f"⚠️ Could not write error_page.html: {write_error}")
+        send_error_email(f"Could not click End Shift: {e}", "logs/error_screenshot.png")
         sys.exit(1)
 
 except Exception as e:
-    print("❌ Error:", e)
+    print("❌ General error:", e)
     driver.save_screenshot("logs/error_screenshot.png")
-    with open("logs/error_page.html", "w", encoding="utf-8") as f:
-        f.write(driver.page_source)
+    try:
+        with open("logs/error_page.html", "w", encoding="utf-8") as f:
+            f.write(driver.page_source or "<empty page source>")
+    except Exception as write_error:
+        print(f"⚠️ Could not write error_page.html: {write_error}")
     send_error_email(str(e), "logs/error_screenshot.png")
-    driver.quit()
     sys.exit(1)
 
 finally:
