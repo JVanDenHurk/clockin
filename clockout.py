@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from dotenv import load_dotenv
 import os
 import sys
@@ -24,7 +25,7 @@ SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 def send_error_email(error_message, screenshot_path):
     msg = EmailMessage()
     msg['Subject'] = 'Clockin Script Error Alert'
-    msg['From'] = ALERT_EMAIL_FROM
+    msg['From'] = ALERT_EMAIL_FROMs
     msg['To'] = ALERT_EMAIL_TO
     msg.set_content(f"Your clockin script failed with the following error:\n\n{error_message}")
 
@@ -45,11 +46,23 @@ def send_error_email(error_message, screenshot_path):
     except Exception as e:
         print(f"❌ Failed to send error email: {e}")
 
-# STEP 1: Suppress TensorFlow/Chrome/Selenium logs
+def try_find_click(driver, by, selector, wait_time=0.5):
+    try:
+        elem = WebDriverWait(driver, wait_time).until(
+            EC.element_to_be_clickable((by, selector))
+        )
+        elem.click()
+        print(f"✅ Successfully clicked element")
+        return True
+    except (TimeoutException, NoSuchElementException, ElementClickInterceptedException) as e:
+        print(f"⚠️ Failed to find/click element: {e}")
+        raise  # Raise exception to signal failure
+
+# STEP 1: Set up Chrome driver
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
 
 options = webdriver.ChromeOptions()
-# options.add_argument("--headless")  # Uncomment to run headless
+# options.add_argument("--headless")  # Uncomment to run in headless mode
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -63,7 +76,7 @@ try:
     print("🌐 Opened login page.")
 
     # STEP 3: Enter email
-    email_input = WebDriverWait(driver, 20).until(
+    email_input = WebDriverWait(driver, 0.5).until(
         EC.element_to_be_clickable((By.ID, "login-email"))
     )
     email_input.clear()
@@ -71,7 +84,7 @@ try:
     print("✉️ Email entered.")
 
     # STEP 4: Enter password
-    password_input = WebDriverWait(driver, 20).until(
+    password_input = WebDriverWait(driver, 0.5).until(
         EC.element_to_be_clickable((By.ID, "login-password"))
     )
     password_input.clear()
@@ -79,28 +92,27 @@ try:
     password_input.send_keys(Keys.RETURN)
     print("🔑 Password entered and submitted.")
 
-    # STEP 5: Click 'End Shift'
-    end_shift_btn = WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-danger.btn-wide.js-myWeek-endShift"))
-    )
-    end_shift_btn.click()
-    print("⏹️ 'End Shift' button clicked.")
-
-    # STEP 6: Confirm 'End Shift' in modal
-    confirm_end_shift = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-danger.js-MyWeek-Modal-SubmitShift"))
-    )
-    confirm_end_shift.click()
-    print("✅ Confirmed 'End Shift' in modal.")
+    # STEP 5: Click 'End Shift' and confirm (one attempt each)
+    try:
+        try_find_click(driver, By.CSS_SELECTOR, "button.btn.btn-danger.btn-wide.js-myWeek-endShift")
+        try_find_click(driver, By.CSS_SELECTOR, "button.btn.btn-danger.js-MyWeek-Modal-SubmitShift")
+    except Exception as e:
+        print("❌ Could not find or click 'End Shift' button or confirm modal:", e)
+        driver.save_screenshot("logs/error_screenshot.png")
+        with open("logs/error_page.html", "w", encoding="utf-8") as f:
+            f.write(driver.page_source)
+        send_error_email(f"Could not find or click 'End Shift' or confirm modal: {e}", "logs/error_screenshot.png")
+        driver.quit()
+        sys.exit(1)
 
 except Exception as e:
     print("❌ Error:", e)
     driver.save_screenshot("logs/error_screenshot.png")
     with open("logs/error_page.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)
-
-    # Send the error email
     send_error_email(str(e), "logs/error_screenshot.png")
-    
+    driver.quit()
+    sys.exit(1)
+
 finally:
     driver.quit()
