@@ -10,7 +10,7 @@ import sys
 import smtplib
 from email.message import EmailMessage
 
-# STEP 0: Load credentials from .env and error handling
+# STEP 0: Load credentials from .env
 load_dotenv()
 EMAIL = os.getenv("DEPUTY_EMAIL")
 PASSWORD = os.getenv("DEPUTY_PASSWORD")
@@ -45,11 +45,11 @@ def send_error_email(error_message, screenshot_path):
     except Exception as e:
         print(f"❌ Failed to send error email: {e}")
 
-# STEP 1: Suppress TensorFlow/Chrome/Selenium logs
+# STEP 1: Set up Chrome driver
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
 
 options = webdriver.ChromeOptions()
-# options.add_argument("--headless")  # Uncomment to run headless
+# options.add_argument("--headless")  # Uncomment to run in headless mode
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -80,20 +80,29 @@ try:
     print("🔑 Password entered and submitted.")
 
     # STEP 5: Click 'Start Shift'
-    start_shift_btn = WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-success.js-myWeek-startShift"))
-    )
-    start_shift_btn.click()
-    print("▶️ 'Start Shift' button clicked.")
+    try:
+        start_shift_btn = WebDriverWait(driver, 30).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-success.js-myWeek-startShift"))
+        )
+        start_shift_btn.click()
+        print("▶️ 'Start Shift' button clicked.")
+    except Exception as e:
+        print("❌ Could not find or click 'Start Shift' button:", e)
+        driver.save_screenshot("logs/error_screenshot.png")
+        with open("logs/error_page.html", "w", encoding="utf-8") as f:
+            f.write(driver.page_source)
+        send_error_email(f"Could not find or click 'Start Shift': {e}", "logs/error_screenshot.png")
+        driver.quit()
+        sys.exit(1)
 
 except Exception as e:
     print("❌ Error:", e)
     driver.save_screenshot("logs/error_screenshot.png")
     with open("logs/error_page.html", "w", encoding="utf-8") as f:
         f.write(driver.page_source)
-
-    # Send the error email
     send_error_email(str(e), "logs/error_screenshot.png")
+    driver.quit()
+    sys.exit(1)
 
 finally:
     driver.quit()
