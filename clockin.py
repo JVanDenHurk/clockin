@@ -88,11 +88,27 @@ try:
 
     # STEP 5: Click 'Start Shift'
     try:
-        start_shift_btn = WebDriverWait(driver, 0.5).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn.btn-success.js-myWeek-startShift"))
+        # Wait for either version of the button to appear
+        buttons = WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "button.js-myWeek-startShift"))
         )
-        start_shift_btn.click()
-        print("▶️ 'Start Shift' button clicked.")
+
+        # Try to click the first visible button
+        clicked = False
+        for btn in buttons:
+            if btn.is_displayed() and btn.is_enabled():
+                driver.execute_script("arguments[0].scrollIntoView(true);", btn)
+                WebDriverWait(driver, 5).until(EC.element_to_be_clickable(btn))
+                try:
+                    driver.execute_script("arguments[0].click();", btn)
+                    print("▶️ Clicked a visible 'Start Shift' button.")
+                    clicked = True
+                    break
+                except Exception as click_error:
+                    print("⚠️ Click failed, trying next button:", click_error)
+
+        if not clicked:
+            raise Exception("No clickable 'Start Shift' buttons found.")
     except Exception as e:
         print("❌ Could not find or click 'Start Shift' button:", e)
         driver.save_screenshot(SCREENSHOT_PATH)
