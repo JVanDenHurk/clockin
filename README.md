@@ -63,10 +63,10 @@ Then I remembered the dusty old laptop sitting in a drawer, still clinging to li
 3. Add two cronjobs:
     ```cron
     # Clock in at 8:55 AM
-    55 8 * * 1-5 /usr/bin/python3 /home/pi/clockin/clockin.py --start
+    55 8 * * 1-5 /usr/bin/python3 /home/username/clockin/clockin.py --start
 
     # Clock out at 5:00 PM
-    0 17 * * 1-5 /usr/bin/python3 /home/pi/clockin/clockout.py --end
+    0 17 * * 1-5 /usr/bin/python3 /home/username/clockin/clockout.py --end
     ```
 
 ---
