@@ -79,7 +79,7 @@ try:
     print("🌐 Opened login page.")
 
     # STEP 4: Enter email
-    email_input = WebDriverWait(driver, 0.5).until(
+    email_input = WebDriverWait(driver, 1).until(
         EC.element_to_be_clickable((By.ID, "login-email"))
     )
     email_input.clear()
@@ -87,7 +87,7 @@ try:
     print("✉️ Email entered.")
 
     # STEP 5: Enter password
-    password_input = WebDriverWait(driver, 0.5).until(
+    password_input = WebDriverWait(driver, 1).until(
         EC.element_to_be_clickable((By.ID, "login-password"))
     )
     password_input.clear()
