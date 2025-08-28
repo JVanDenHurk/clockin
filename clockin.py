@@ -9,6 +9,8 @@ import os
 import sys
 import smtplib
 from email.message import EmailMessage
+import tempfile
+import shutil
 
 # STEP 0: Load credentials from .env
 load_dotenv()
@@ -56,11 +58,15 @@ def send_error_email(error_message, screenshot_path):
 chrome_service = ChromeService(log_path='NUL' if sys.platform == "win32" else "/dev/null")
 
 options = webdriver.ChromeOptions()
-# options.add_argument("--headless")  # Uncomment to run headless
+# options.add_argument("--headless=new")  # Uncomment to run headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 options.add_argument("--log-level=3")
+
+# 👇 Force a unique temp profile so it never conflicts
+temp_profile = tempfile.mkdtemp()
+options.add_argument(f"--user-data-dir={temp_profile}")
 
 driver = webdriver.Chrome(service=chrome_service, options=options)
 
@@ -127,3 +133,9 @@ except Exception as e:
 
 finally:
     driver.quit()
+    # 👇 Cleanup the temporary Chrome profile
+    try:
+        shutil.rmtree(temp_profile, ignore_errors=True)
+        print(f"🧹 Cleaned up temp profile: {temp_profile}")
+    except Exception as cleanup_error:
+        print(f"⚠️ Could not remove temp profile {temp_profile}: {cleanup_error}")

@@ -1,0 +1,553 @@
+<html lang="en" class="js canvas no-touch hashchange history rgba borderradius boxshadow opacity cssanimations cssgradients csstransforms csstransforms3d csstransitions localstorage no-applicationcache no-overflowscrolling placeholder pointerevents win chrome chrome1 webkit webkit5" theme="deputy"><!--<![endif]--><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+		<link rel="stylesheet" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/themes/deputy/index.css">
+		
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+				
+		<!-- Viewport Options -->
+
+		<!-- Optimized for mobile, zoom/scaling disabled  && !DeputecHashTable::IsOnBoardingEnabled()-->
+		
+		<!-- Banner for iOS app if user is on iPhone -->
+		
+		<!-- Browser Appearance -->
+
+		<!-- status bar styles: default, black, or black-translucent -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- MJQ-59 -->
+		<!-- hides address bar & search -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+
+					<!-- typekit -->
+			<link rel="preconnect" href="https://use.typekit.net">
+			<link rel="preconnect" href="https://p.typekit.net">
+
+			<!-- Deputy CDN -->
+			<link rel="preconnect" href="https://d2sebmzxyyulvv.cloudfront.net">
+
+			<!-- Google Fonts -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			
+			<!-- segment.io (Analytics) -->
+			<link rel="preconnect" href="https://api.segment.io">
+			<link rel="preconnect" href="https://cdn.segment.com">
+
+			<!-- cloudflare cdn -->
+			<link rel="preconnect" href="cdnjs.cloudflare.com">
+		
+		<!-- Home Screen Icons -->
+
+		<!-- Standard Favicon - Make sure this comes last, otherwise some browsers will use the touch icons -->
+		<link rel="shortcut icon" href="/assets/images/icons/favicon.ico?v=brandrefresh">
+
+		<!-- For Safari pin tab -->
+
+		<link rel="mask-icon" href="/assets/images/icons/logo.svg" color="black">
+
+		<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/icons/touch/favicon-152.png">
+
+		<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/icons/touch/favicon-144.png">
+
+		<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/icons/touch/favicon-120.png">
+
+		<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/icons/touch/favicon-114.png">
+
+		<!-- For first- and second-generation iPad: -->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/icons/touch/favicon-72.png">
+
+		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+		<link rel="apple-touch-icon-precomposed" href="/assets/images/icons/touch/favicon-57.png">
+
+
+
+		
+		<base href="https://once.deputy.com">
+
+		
+		<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/_mscDd1KHr60EWWbt2I_ULP0/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-LpPE17frK5ghpDNcL02QVoY7N6n375lMdZEBjkcA4rqimdzMm/XNiOx2MI2jTEkt"></script><script type="text/javascript" async="" src="https://cdn.segment.com/analytics.js/v1/4sgl1JOZT0jHSrWqSBF6jyNFsy7ayDWL/analytics.min.js"></script><script>
+			window.__APP__ = window.__APP__ || {};
+
+                        window.__APP__.ANALYTICS = window.__APP__.ANALYTICS || {};
+            window.__APP__.ANALYTICS.segmentKey = "4sgl1JOZT0jHSrWqSBF6jyNFsy7ayDWL";
+            window.__APP__.ANALYTICS.context = {"application":"WEB","installation":{"ID":"once","alternateHostname":"once.deputy.com","country":"AU","edition":{"ID":2,"edition":"PRO_TRIAL"},"hostname":"once.deputy.com","paying":false,"region":"USW2","deputyFlag":false,"timezone":{"name":"UTC","utcOffset":"+0000"},"installationId":"once"},"user":{"deputyEmailFlag":false,"deputyUUID":"","installationUserID":"0"}};
+            window.__APP__.ANALYTICS.instance = undefined;
+            window.__APP__.ANALYTICS.dataLayer = [];
+            window.__APP__.ANALYTICS.track = ()=> true;
+
+            window.__APP__.CHANNEL = 'DIRECT';
+            window.__APP__.EMBED = window.__APP__.EMBED || {};
+            window.__APP__.EMBED.canEmbed = false;
+			window.__APP__.EMBED.PERMISSIONS = {"modules":{"legacy":{"deny":["myweek","myweek-left-panel","add-location","archive-location","message","duplicate-location","edit-location-name","duplicate-location","global-customize-tab","teams-panel","edit-location-title","dashboard-collapse","change-plan-popup"]},"people":{"deny":["add-people","onboard-member","manage-login-issues","help-banner","hr-side-navigation","sync-to-payroll-banner","remove-from-scheduling","area-based-pay-banner","pay-rate-banner"]},"help-center":{"deny":["support-bubble"]},"business-insights":{"deny":["integration-settings"]},"global-settings":{"deny":["upcoming-features-tab","general-login"]},"header":{"deny":["navigation","notifications"]},"schedule":{"deny":["insights-give-feedback","options-add-shifts-from-file","add-employee","shift-popover-give-feedback"]},"me":{"deny":["me-welcome-section","nps-referral-feedback","home-onboarding-dashboard"]},"location":{"deny":["locations-help-banner-embed"]},"leave":{"deny":["leave-balances-banner","leave-info-banner"]},"pay-rate-builder":{"deny":["pay-rate-builder-back-button"]}}};
+			const instanceChannel = 'DIRECT';
+			const xeroEmbedChannels = [
+				'EMBED_XERO',
+				'EMBED_ARCHER'
+			];
+            const isDeputyXeroEmbed = xeroEmbedChannels.includes(instanceChannel);
+            const isEmbedUserBlocked = false;
+            if (isEmbedUserBlocked) {
+                const loggedUser = false;
+                const isLoggedViaPortal = true;
+                if (isDeputyXeroEmbed && window.self === window.top && loggedUser && !isLoggedViaPortal) {
+                    const embedAccessDeniedPage = '/apps/static-pages/#/access-denied';
+                    if (!window.location.href.includes(embedAccessDeniedPage)) {
+                        window.location.href = embedAccessDeniedPage;
+                    }
+                }
+            }
+
+			if (isDeputyXeroEmbed) {
+				const enableRedirectingToErrorPageWhen3rdPartyCookieDisabled = false;
+				if (enableRedirectingToErrorPageWhen3rdPartyCookieDisabled) {
+                    document.cookie = "test_cookie=1; SameSite=None; Secure";
+                    const thirdPartyCookieEnabled = '3rd-cookie-enabled';
+                    if (document.cookie.indexOf("test_cookie") === -1) {
+                        const embedCookieDisabledPage = '/error';
+                        if (!window.location.href.includes(embedCookieDisabledPage)) {
+                            window.location.href = embedCookieDisabledPage + '?' + thirdPartyCookieEnabled + '=0';
+                        }
+                    } else {
+                        // remove test cookie if 3rd party cookies are enabled
+                        document.cookie = "test_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
+                    }
+                }
+            }
+
+			const isEmbedOnboardingCompleted = false;
+			if (isDeputyXeroEmbed && isEmbedOnboardingCompleted) {
+				const message = {
+					type: 'display-navigation-bar',
+					value: isEmbedOnboardingCompleted,
+				};
+				console.log('Sending message to parent', message);
+				window.parent.postMessage(message, '*');
+			}
+
+			window.__APP__.IS_LOGIN_VIA_PORTAL = false;
+            window.__APP__.analyticsContext = {"application":"WEB","installation":{"ID":"once","alternateHostname":"once.deputy.com","country":"AU","edition":{"ID":2,"edition":"PRO_TRIAL"},"hostname":"once.deputy.com","paying":false,"region":"USW2","deputyFlag":false,"timezone":{"name":"UTC","utcOffset":"+0000"},"installationId":"once"},"user":{"deputyEmailFlag":false,"deputyUUID":"","installationUserID":"0"}};
+            window.__APP__.analyticsIdentify = {"deputyUUID":"","installationUserID":"0","email":"","deputyEmailFlag":false,"firstName":"","lastName":"","phone":""};
+
+                        window.__APP__.INTEGRATIONS = window.__APP__.INTEGRATIONS || {};
+			window.__APP__.INTEGRATIONS.isDeputyXeroEmbed = isDeputyXeroEmbed;
+            window.__APP__.INTEGRATIONS.FlatFile = window.__APP__.INTEGRATIONS.FlatFile || {};
+            window.__APP__.INTEGRATIONS.FlatFile.environmentId = "us_env_qYfmhLII";
+            window.__APP__.INTEGRATIONS.FlatFile.publishableKey = "pk_a9feb230b98440aa89041c6d38492c82";
+							window.__APP__.INTEGRATIONS.FlatFile.apiUrl = "platform.flatfile.com";
+				window.__APP__.INTEGRATIONS.FlatFile.environmentId = "us_env_qYfmhLII";
+            	window.__APP__.INTEGRATIONS.FlatFile.publishableKey = "pk_a9feb230b98440aa89041c6d38492c82";
+							window.__APP__.INTEGRATIONS.getHelpLinks = function() {
+				return {"channel":"base","tabs":{"me":[],"newsfeed":{"about-newsfeed":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4689257989903-News-Feed-and-posts"},"tasks":[],"locations":{"schedule":{"manange-areas-via-file-more-info":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/6752592885263-Bulk-import-or-update-of-locations-and-areas-Beta-","learn-more-about-geofencing":"https:\/\/deputy.zendesk.com\/hc\/en-au\/articles\/4657686206095-Enable-Geofence-in-Deputy","learn-more-about-shift-notifications":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4692803698063-FAQs-for-manager-notifications#h_01G6M2YX2TJHWMF6TTMRAA3AJ6"}},"people":{"preferred-name":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/5036863244431-Displaying-team-members-preferred-names-in-Deputy","general":{"invite-yourself":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4657777625871-Add-your-team-by-sharing-a-link"},"employment":{"about-access-level":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658199944847-Deputy-access-levels","about-access-level-enterprise":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4755122284303","about-training":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4657753960463-Managing-training-requirements-Premium-plan","about-pay-rates":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658201155215-Set-up-a-team-member-s-pay-rates","about-regular-working-hours":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658212593423-Set-a-team-member-s-regular-working-hours","about-hours-per-work-period":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658212593423-Set-a-team-member-s-regular-working-hours","about-stress-profile":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658226793999-Set-up-stress-profiles-and-fatigue-management"},"leave":{"learn-more-about-leave-management":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658269439247\/"},"bulk-actions":{"create-your-own-stress-profile":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658226793999-Set-up-stress-profiles-and-fatigue-management","about-pay-rates":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658201155215-Set-up-a-team-member-s-pay-rates"}},"schedule":{"auto":{"auto-schedule-regular-working-hours":{"learn-more":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4658245005711-Set-up-a-team-member-s-agreed-working-hours"}},"start-auto-scheduling":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4688892429839-Using-Auto-scheduling"},"timesheets":[],"reports":{"business-insights-guide":{"read-our-guide-to-business-insights":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4764581499919\/","read-the-guide":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4764581499919\/","read-our-guide-to-labor-modelling":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4764637691279\/"},"required-staff-settings":{"learn-more":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4764637691279\/"},"pay-comparison-report":{"learn-more":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/5337848247567\/","about-outer-limits":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/5337848247567\/"}},"settings":{"people":{"preferred-name":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/5036863244431-Displaying-team-members-preferred-names-in-Deputy","permission-info":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4688947197455-Smart-Scheduling-101#h_01GRSW5JJ2B1VSKZBCB60KSCME"},"timesheets":{"recalculate-approved-timesheets":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4689592946063-Recalculating-approved-timesheets","about-shift-pulse-report":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/4755461642511-Shift-Pulse-Report-reporting-on-employee-engagement"},"custom-terms":{"about-custom-terms":"https:\/\/help.deputy.com\/hc\/en-au\/articles\/9276365231759-Customise-the-terms-you-use-in-Deputy"}}},"default":"https:\/\/help.deputy.com"};
+			}
+		</script>
+
+        <!-- Importing the Workato script needed to configure and communicate with the Workato embed -->
+        <script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_app/mixed_third_party/workato-embedding-client.js " type="text/javascript"></script>
+
+		
+		<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_app/mixed_third_party/datadog-logs-us.js " type="text/javascript"></script>
+<script>
+    if (window.DD_LOGS) {
+        DD_LOGS.init({
+            clientToken: 'pube9eb63d10746fc0bf74f39d960140631',
+            forwardErrorsToLogs: false,
+        });
+
+        // currently dimensions are only calculated once on initialisation
+        DD_VIEWPORT_HEIGHT = Math.max(document?.documentElement?.clientWidth || 0, window?.innerWidth || 0);
+        DD_VIEWPORT_WIDTH = Math.max(document?.documentElement?.clientHeight || 0, window?.innerHeight || 0);
+        DD_USER_CONTEXT = {
+            "user_id": window?.__APP__?.analyticsContext?.user?.installationUserID,
+            "deputy_uuid": window?.__APP__?.analyticsContext?.user?.deputyUUID,
+            "browser_dimensions": `${DD_VIEWPORT_HEIGHT}x${DD_VIEWPORT_WIDTH}`
+        };
+
+        DD_LOGS.addLoggerGlobalContext('service', 'deputy-webapp-browser');
+        DD_LOGS.addLoggerGlobalContext('app.subdomain', document.location.host);
+        DD_LOGS.addLoggerGlobalContext('service_context.user', DD_USER_CONTEXT);
+        DD_LOGS.addLoggerGlobalContext('env', 'prod');
+        DD_LOGS.addLoggerGlobalContext('region', 'us-west-2');
+        DD_LOGS.addLoggerGlobalContext('version', '8afb21e61893545eaac7dc581dac022086e3656f');
+        DD_LOGS.addLoggerGlobalContext('tenantId', 'once');
+        DD_LOGS.addLoggerGlobalContext('channel', 'DIRECT')
+
+        DD_LOGS.logger.info('Initialised');
+    }
+</script>
+
+		<script type="text/javascript">
+                        AWARD_BASE_URL = 'https://api.usw2.deputy.com/sys/award/v1';
+			DP_SERVER_INSTANCE = 'prod';
+			DP_ENVIRONMENT = 'prod';
+			DP_ASSETS = 'https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/';
+			DP_DESKTOP_AUTO_UPDATE = 120000;
+			DP_OFFLINE = false;
+			DP_LOCALE_INFO = {"decimal_point":".","thousands_sep":"","int_curr_symbol":"","currency_symbol":"","mon_decimal_point":"","mon_thousands_sep":"","positive_sign":"","negative_sign":"","int_frac_digits":255,"frac_digits":255,"p_cs_precedes":255,"p_sep_by_space":255,"n_cs_precedes":255,"n_sep_by_space":255,"p_sign_posn":255,"n_sign_posn":255,"grouping":[],"mon_grouping":[]};
+			DP_LOCALE_INFO.locale = "en_AU";
+            DP_SUBSCRIPTION_PAUSED = ""
+			DP_SUBSCRIPTION = 0;
+            /**
+             * TODO: remove this function only being used in one place
+             * TODO: remove this DP_JS_LIB_MAP FE mapping only being used on DP_JS_LIB_MAP.fileupload
+             */
+			DP_JS_LIB_MAP = {"core_index":["js\/concat-libs\/dp.lib.core_index.js"],"core":["js\/concat-libs\/dp.lib.core.js"],"dtcontrol":["js\/concat-libs\/dp.lib.dt.js"],"microapp":["js\/concat-libs\/dp.app.microapp.js"],"empapp":["js\/concat-libs\/dp.app.emp-edit-controls.js"],"my.desktop":["js\/concat-libs\/dp.my.desktop.js"],"desktop":["js\/concat-libs\/dp.app.desktop.js"],"price":["js\/concat-libs\/dp.app.price.js"],"onboarding":["js\/concat-libs\/dp.app.onboarding.js"],"rosterapp":["js\/concat-libs\/dp.app.rostering.js"],"corev2":["js\/concat-libs\/dp.lib.corev2.js"],"jquery-ui":["js\/concat-libs\/dp.jquery.ui.js"],"dpform":["js\/concat-libs\/dp.lib.form.js"],"fileupload":["js\/concat-libs\/dp.lib.fu.js"],"fileuploadv3":["js\/concat-libs\/dropzone.js"],"advcontrol":["js\/concat-libs\/dp.lib.adv.js"],"flot":["js\/concat-libs\/dp.app.flot.js"]};
+			// TODO: remove this exposed variable because it's already imple.mented here DP_SUBSCRIPTION
+			DP_IS_ENTERPRISE = false;
+
+            __APP__.SERVER_INSTANCE = 'prod';
+            __APP__.ENVIRONMENT = 'prod';
+            __APP__.LAUNCHDARKLY_CLIENT_ID = '5b4e9011c4ea4f2d74b18968';
+            __APP__.REGION = 'us-west-2';
+            __APP__.SHORT_REGION = 'usw2';
+            __APP__.API_REGION_HOSTNAME = 'api.usw2.deputy.com';
+            __APP__.GRAPHQL_REGION_ENDPOINT = 'https://graph.usw2.deputy.com/graphql';
+            __APP__.API_MARKETPLACE_HOSTNAME = 'https://marketplace.deputy.com';
+            __APP__.API_COMPLIANCE_BASE_URL = 'https://api.usw2.deputy.com/compliance';
+            __APP__.ONCE_URL = 'https://once.deputy.com';
+            __APP__.DEFAULT_EMPLOYEE_LABEL = "employee";
+            __APP__.DEFAULT_SHIFT_LABEL = "shift";
+            __APP__.DEFAULT_EMPLOYEE_LABEL_PLURAL = "employees";
+            __APP__.DEFAULT_SHIFT_LABEL_PLURAL = "shifts";
+
+                        window.__APP__.FF = {};
+            
+						__APP__.DEFAULT_MEAL_BREAK_UNPAID_LABEL = 'meal break (unpaid)';
+			__APP__.DEFAULT_REST_BREAK_PAID_LABEL = 'rest break (paid)';
+		</script>
+
+
+		<style>
+						:root {
+				--theme-color: ;
+				--_navigation-background-color: var(--navigation-background-color, var(--theme-color));
+				--_navigation-background-active-color: var(--navigation-background-active-color, color-mix(in oklab, var(--theme-color), black 11.7%)); /* theme color darker by 11.7% */
+				--_navigation-background-hover-color: var(--navigation-background-hover-color, color-mix(in oklab, var(--theme-color), black 11.7%)); /* theme color darker by 11.7% */
+			}
+		</style>
+
+		<link type="text/css" rel="stylesheet" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/deputy-fonts.min.css">
+<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/concat-libs/dp.lib.corev2.js " type="text/javascript"></script>
+<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_lib/jquery.reject.js " type="text/javascript"></script>
+
+        <script type="text/javascript">
+            (function() {
+                let token;
+                $(() => {
+                    const qForm = document.querySelector('#Qform__CsrfToken');
+                    if(qForm && qForm.value) {
+                        token = qForm.value;
+                    }
+                });
+                $.ajaxSetup({
+                    beforeSend: function (xhr) {
+                        if (token) {
+                            xhr.setRequestHeader('X-DP-CSRF-TOKEN', token);
+                        }
+                    }
+                });
+            })();
+        </script>
+
+
+
+		<!--[if (gte IE 6)&(lte IE 8)]>
+			<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_app/polyfills/selectivizr-1.02.min.js " type="text/javascript"></script>
+		<![endif]-->
+
+		<!--[if IE 7]>
+			<link type="text/css" rel="stylesheet" media="screen,projection" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/_lib/dp.lib.ie-7.min.css" />		<![endif]-->
+
+		<!--[if IE 8]>
+			<link type="text/css" rel="stylesheet" media="screen,projection" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/_lib/dp.lib.ie-8.min.css" />		<![endif]-->
+
+
+		<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+</script>
+<script type="text/javascript">
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+  analytics.load('4sgl1JOZT0jHSrWqSBF6jyNFsy7ayDWL');
+  }}();
+
+  (function (){
+    const installationId = ((window.__APP__.analyticsContext || {}).installation || {}).ID;
+
+    function onLoadedGA(callback, count) {
+      if (typeof ga === 'function' && typeof ga.getAll === 'function') {
+          callback();
+      } else {
+          if (count > 20) {
+              return;
+          }
+
+          setTimeout(function () { onLoadedGA(callback, count + 1); }, 500);
+      }
+    }
+
+    function sendAnalyticsIdentify(identifyData) {
+      if (identifyData?.deputyUUID) {
+        analytics.identify(identifyData.deputyUUID, identifyData);
+      }
+    }
+
+    function sendAnalyticsGroup(context) {
+      if (installationId && installationId !== 'once') {
+        analytics.group(installationId, context.installation);
+      }
+    }
+
+    function initializeAnalytics(extraEventData) {
+      sendAnalyticsIdentify(window.__APP__.analyticsIdentify);
+      sendAnalyticsGroup(window.__APP__.analyticsContext);
+      dpAnalytics.init({
+        context: window.__APP__.analyticsContext,
+        installationId,
+      });
+
+      window.analyticsService = dpAnalytics.createAnalyticsService({
+        send(name, event) {
+          analytics.track(name, event, extraEventData);
+        },
+        installationId,
+        context: window.__APP__.analyticsContext,
+      });
+    }
+
+    initializeAnalytics();
+
+    onLoadedGA(function () {
+        var gaClientId = window.ga.getAll()[0].get('clientId');
+
+        window.__APP__.analyticsContext.analyticsIntegration = {
+            googleAnalyticsClientId: gaClientId,
+        };
+
+        var MEASUREMENT_ID = 'G-LTPZTVSWXC';
+
+        Promise.all([
+            new Promise(resolve => {
+                gtag('get', MEASUREMENT_ID, 'session_id', resolve)
+            }),
+            new Promise(resolve => {
+                gtag('get', MEASUREMENT_ID, 'session_number', resolve)
+            })
+        ]).then(function(gaSession) {
+            window.__APP__.analyticsContext.analyticsIntegration.googleAnalyticsSessionId = gaSession[0];
+            window.__APP__.analyticsContext.analyticsIntegration.googleAnalyticsSessionNumber = gaSession[1];
+        }).finally(function() {
+            initializeAnalytics({
+                integrations: {
+                    'Google Universal Analytics': { clientId: gaClientId },
+                }
+            });
+        });
+    }, 0);
+
+  })();
+</script>
+<link type="text/css" rel="stylesheet" media="screen,projection" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/deputy.min.css"><link type="text/css" rel="stylesheet" media="screen,projection" href="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css/_app/jquery.reject.min.css"><script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_lib/backbone-validation.js " type="text/javascript"></script>
+<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_app/dp.my.base.js " type="text/javascript"></script>
+<script src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js/_app/dp.my.login.js " type="text/javascript"></script>
+	
+		<title>Deputy Login: Access Your Profile Here</title>
+		<meta name="description" content="Click here to enter your email address and password &amp; access the Deputy login portal.">
+        <style>
+            .xero-sso-label {
+                margin-top: 0 !important;
+            }
+        </style>
+		
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+</head>
+
+<body class="login-wizard margin-none " data-version="3.0.7" data-release="8afb21e61893545eaac7dc581dac022086e3656f">
+	<script>
+		$(document).ready(function() {
+			$.reject({});
+		});
+	</script>
+        
+	<form method="post" id="login" action="/my/login?redirect_url=https%3A%2F%2Fvr.au.deputy.com&amp;redirect_to_instance=1">
+	
+	
+	
+	<div class="instLogin">
+		<div class="instLogin_leftPanel login-ad">
+            <div class="instLogin_deputyLogo"><a href="https://www.deputy.com"><img class=" ls-is-cached lazyloaded" data-src="assets/images/logos/logo-spark-colour.svg" width="48" src="assets/images/logos/logo-spark-colour.svg"></a></div>
+            <iframe src="https://www.deputy.com/login/welcome-carousel" frameborder="0" sandbox="allow-same-origin allow-scripts allow-popups allow-top-navigation-by-user-activation"></iframe>
+		</div>
+
+		<div class="instLogin_rightPanel">
+			<div class="instLogin_wrapper">
+				<div class="instLogin_container">
+					<div id="login-form" class="login-form">
+						<div class="js-msg-placeholder"></div>
+						
+												
+						
+						
+						<div class="DSLInput DSLInput_lg DSLInput_wide login-email">
+							<label class="DSLInput_label" for="email">Username or Email</label>
+							<div class="DSLInput_container">
+								<span class="login_ctl">
+									<input id="login-email" tabindex="1" value="" type="email" class="DSLInput_inputField" name="EmailAddress" maxlength="255">
+								</span>
+								<div class="DSLInput_icon"><i class="fal fa-user"></i></div>
+							</div>
+						</div>
+						<div class="DSLInput DSLInput_lg DSLInput_wide login-password">
+							<a href="#" class="pull-right forget-password">Forgot Password?</a>
+							<label class="DSLInput_label" for="email">Password</label>
+							<div class="DSLInput_container">
+								<span class="password_ctl">
+									<input id="login-password" tabindex="2" type="password" class="DSLInput_inputField" name="Password" maxlength="255">
+								</span>
+								<div class="DSLInput_icon"><i class="fal fa-lock"></i></div>
+							</div>
+						</div>
+						<span>
+							<input type="hidden" name="hdnScreenRes" value="1920x1080">
+						</span>
+						<div class="control-group">
+							<div class="controls">
+								<span id="btnLoginSubmit_ctl"><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-thlsmoy16eap" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdYwnYkAAAAAG4gtFY6L5akvLdBi47osIuIj1lt&amp;co=aHR0cHM6Ly9vbmNlLmRlcHV0eS5jb206NDQz&amp;hl=en&amp;v=_mscDd1KHr60EWWbt2I_ULP0&amp;size=invisible&amp;sa=login&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=eyhb9xawwns0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><input type="button" name="btnLoginSubmit" id="btnLoginSubmit" value="Log in" class="button g-recaptcha btn btn-primary btn-wide btn-xl" tabindex="4" data-sitekey="6LdYwnYkAAAAAG4gtFY6L5akvLdBi47osIuIj1lt" data-callback="recaptchaCallback" data-action="login"></span>								<span id="recaptchaTokenTrigger_ctl"><input type="button" name="recaptchaTokenTrigger" id="recaptchaTokenTrigger" value="" class="button invisible" disabled="disabled" onclick="qc.pB('login', 'recaptchaTokenTrigger', 'QClickEvent', ''); return false;"></span>							</div>
+						</div>
+
+						<div class="margin-none instLogin_socialHint"><span>or login with</span></div>
+
+						
+																			
+								<!-- <p title="Version 3.0.7 Release 8afb21e61893545eaac7dc581dac022086e3656f">Login with</p> -->
+								
+		                        <!-- Social Login -->
+		                        <div class="margin-none instLogin_socialLogin">
+									<div class="instLogin_altLogin instLogin_facebook">
+										<a href="https://once.deputy.com/connect/join?provider=FB&amp;info=YmJsalJQdE9qalpsTGM0RVhpSjh6T21laXNSaElDSTAwMGdsSTZKdzFvS3dQNnRtaHk1Y0xuaEF6Rkk3c042NnA1Z291bTUwdHFWTGhXSmliUkZKZGZoZ0VoME5Cc0hiNmN6Nk1ZSjdiSmhlZnU5Wk91ZVFGVVNEQ1V3bU1yZEZVV0VsR2JxdnF0Q3JHWnhzaGtOWnNQS0RSTzB6Y1l0cy90WjBrdys5Y3UvWmtWdnVqcmRZUFlWNkNqOTFnWTNtSUJKdUtRRy90am14cXBiRU5OeFdPTkRlZU1jVitlT3dweXlFOVByZGJBVmZrYVF6cVNpMWVqY1QrREhiRHRKWmk2ZzRlNSt5Y1FNVmNjdG55TEQybVNBNm5MU0ZHZWlvSUl6V284VHk3RXdwcGUwRFNWc2dJcStiSlFOcmRMWVhHY0I3eVMrSWJQc3NVNkErY3piMk9BPT0%3D" class="btn btn-default btn-xl btn-wide btn-light"><i class="fab fa-facebook mr5"></i>Facebook</a>
+									</div>
+									<div class="margin-none instLogin_altLogin instLogin_google">
+										<a href="https://once.deputy.com/connect/join?provider=GG&amp;info=YmJsalJQdE9qalpsTGM0RVhpSjh6T21laXNSaElDSTAwMGdsSTZKdzFvS3dQNnRtaHk1Y0xuaEF6Rkk3c042NnA1Z291bTUwdHFWTGhXSmliUkZKZGZoZ0VoME5Cc0hiNmN6Nk1ZSjdiSmhlZnU5Wk91ZVFGVVNEQ1V3bU1yZEZVV0VsR2JxdnF0Q3JHWnhzaGtOWnNQS0RSTzB6Y1l0cy90WjBrdys5Y3UvWmtWdnVqcmRZUFlWNkNqOTFnWTNtSUJKdUtRRy90am14cXBiRU5OeFdPTkRlZU1jVitlT3dweXlFOVByZGJBVmZrYVF6cVNpMWVqY1QrREhiRHRKWmk2ZzRlNSt5Y1FNVmNjdG55TEQybVNBNm5MU0ZHZWlvSUl6V284VHk3RXdwcGUwRFNWc2dJcStiSlFOcmRMWVhHY0I3eVMrSWJQc3NVNkErY3piMk9BPT0%3D" class="btn btn-default btn-xl btn-wide btn-light"><img class="google-icon mr5" src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/img/login/google.svg" alt="">Google</a>
+									</div>
+                                    <div class="margin-none instLogin_altLogin instLogin_apple">
+                                        <a href="https://once.deputy.com/connect/join?provider=AP&amp;info=YmJsalJQdE9qalpsTGM0RVhpSjh6T21laXNSaElDSTAwMGdsSTZKdzFvS3dQNnRtaHk1Y0xuaEF6Rkk3c042NnA1Z291bTUwdHFWTGhXSmliUkZKZGZoZ0VoME5Cc0hiNmN6Nk1ZSjdiSmhlZnU5Wk91ZVFGVVNEQ1V3bU1yZEZVV0VsR2JxdnF0Q3JHWnhzaGtOWnNQS0RSTzB6Y1l0cy90WjBrdys5Y3UvWmtWdnVqcmRZUFlWNkNqOTFnWTNtSUJKdUtRRy90am14cXBiRU5OeFdPTkRlZU1jVitlT3dweXlFOVByZGJBVmZrYVF6cVNpMWVqY1QrREhiRHRKWmk2ZzRlNSt5Y1FNVmNjdG55TEQybVNBNm5MU0ZHZWlvSUl6V284VHk3RXdwcGUwRFNWc2dJcStiSlFOcmRMWVhHY0I3eVMrSWJQc3NVNkErY3piMk9BPT0%3D" class="btn btn-default btn-xl btn-wide btn-light"><i class="fab fa-apple mr5"></i>Apple</a>
+                                    </div>
+                                    <div class="margin-none instLogin_altLogin instLogin_xero">
+                                        <a href="https://once.deputy.com/my/integrations_connect.php?provider=XO&amp;info=YmJsalJQdE9qalpsTGM0RVhpSjh6T21laXNSaElDSTAwMGdsSTZKdzFvS3dQNnRtaHk1Y0xuaEF6Rkk3c042NnA1Z291bTUwdHFWTGhXSmliUkZKZGZoZ0VoME5Cc0hiNmN6Nk1ZSjdiSmhlZnU5Wk91ZVFGVVNEQ1V3bU1yZEZVV0VsR2JxdnF0Q3JHWnhzaGtOWnNQS0RSTzB6Y1l0cy90WjBrdys5Y3UvWmtWdnVqcmRZUFlWNkNqOTFnWTNtSUJKdUtRRy90am14cXBiRU5OeFdPTkRlZU1jVitlT3dweXlFOVByZGJBVmZrYVF6cVNpMWVqY1QrREhiRHRKWmk2ZzRlNSt5Y1FNVmNjdG55TEQybVNBNm5MU0ZHZWlvSUl6V284VHk3RXdwcGUwRFNWc2dJcStiSlFOcmRMWVhHY0I3eVMrSWJQc3NVNkErY3piMk9BPT0%3D" class="btn btn-default btn-xl btn-wide btn-light"><img class="google-icon mr5" src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/img/login/xero.svg" alt="">Xero</a>
+                                    </div>
+		                        </div>
+																	<div class="margin-compact text-center">
+										Login with a <a href="#tModal" role="button" data-toggle="modal">third party service</a>
+									</div>
+																			</div>
+				</div>
+			</div>
+
+							<div class="text-center login-footer padding">
+					<div class="dropdown">
+						<p><a href="https://www.deputy.com/employee-getting-started">Join an existing workplace</a></p>
+                        <p>Not using Deputy? <a class="btn btn-default ml5" href="https://www.deputy.com?signup=open">Start your free trial</a></p>
+					</div>	
+				</div>
+					</div>
+	</div>
+
+
+	<div id="tModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog third-party-login-modal">
+			<div class="modal-content">
+				<div class="modal-header" style="border: none">
+					<button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close" style="border:none">
+                        <span class="di-cross" aria-hidden="true" style="font-size:16px"></span>
+                    </button>
+                    <h3 id="myModalLabel" class="text-center" style="padding-top: 15px;">Third Party Login</h3>
+                </div>
+				<div class="modal-body" style="height:350px">
+
+                    <div class="row" style="margin:0">
+                        <div class="col-xs-12 text-center" style="padding: 15px">
+                            <p>Select a third party service you would like to login with</p>
+                        </div>
+                        <div class="col-xs-12 text-center" style="padding: 15px">
+							<a href="/my/qbo_openid_connect?formDeputy=1" class="btn"><img src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/img/login/intuit-blue-logo.png" style="width:355px"></a>
+							<a href="/my/adp_openid_connect.php" class="btn"><img src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/img/login/adp-run-logo.png" alt="Sign in with ADP RUN" style="width:355px"></a>
+                            <a href="/my/adp_wfn_openid_connect.php" class="btn"><img src="https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/img/login/adp-wfn-logo.png" alt="Sign in with ADP WFN" style="width:355px"></a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>	
+	
+	
+	<!-- Forget Password Modals -->
+<div class="modal fade" id="password-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close"><span class="di-cross" aria-hidden="true"></span></button>
+				<h3 class="margin-none">So you forgot your password?</h3>
+			</div>
+			<div class="modal-body js-msg-placeholder">
+				<div class="padding">
+					<p>Alright, pop in your email address and we'll send you a link to reset your password.</p>
+					<div class="forget-password-form">
+						<div class="control-group forget-password-email">
+							<label class="control-label" for="email">Email Address</label> 
+							<input type="email" id="email" class="form-control" name="EMAIL_ADDRESS_TO_RESET_PASSWORD">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <span id="btnResetPasssword_ctl"><input type="button" name="btnResetPasssword" id="btnResetPasssword" value="Let's do this" class="btn btn-primary margin-none" onclick="if (!DP.my.login.forgetPasswordView.validateValue()) return false; qc.pB('login', 'btnResetPasssword', 'QClickEvent', ''); qc.getW('btnResetPasssword').toggleEnabled(''); return false;"></span>				<!--<a href="#" class="btn btn-primary margin-none">Let's do this</a>-->
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<!-- Reset activation Email Modals -->
+<div class="modal fade" id="resend-activation-email-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close"><span class="di-cross" aria-hidden="true"></span></button>
+				<h3>Resend your activation letter?</h3>
+			</div>
+			<div class="modal-body">
+				<div class="padding">
+					<p>Hi, please input your email address and we will resend you an activation letter.</p>
+					<div class="resend-activation-email-form">
+						<div class="control-group resend-activation-email">
+							<label class="control-label" for="resend-activation-email">Email Address</label>
+							<input type="email" id="resend-activation-email" class="form-control margin-none">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-primary">Send</a>
+			</div>
+		</div>
+	</div>
+	
+</div>		
+<div style="display: none;">
+	<input type="hidden" name="Qform__FormState" id="Qform__FormState" value="1">
+	<input type="hidden" name="Qform__FormId" id="Qform__FormId" value="login"><input type="hidden" name="Qform__CsrfToken" id="Qform__CsrfToken" value="eyJ0eXAiOiJDU1JGIiwiYWxnIjoiSFM1MTIifQ.eyJub25jZSI6IjY2ZGY3NTM4NzEzOWRjMmVlNDRmYTExMjdkNmE2MTdmNmI1ODgyMzQ2NDIxZTc3YzcyNjZjMGY3MzQ2MDA5MmZjZjI2MjE5ZTEyNDZhOTY5NzE3OGQ5ZDM3ZWU1YWQxMTg4ZWEwN2IwZWVkZGJlNjZkNGYxNzYyZjU2ZmNmM2VhIiwic2VzcyI6IjVkZjhjNWUxY2YyYmM0YmRiZDAyODIwMmIyYWJmY2E0IiwidHRpIjoiMzF1VXh6ZkY3dkxLQ1BPQUdsMkVtVE00MFVoIiwiY3QiOjE3NTYzNzM3MDF9.BI-rcNfLFZW4Zoo2kF7yTbLQdYUACxAygfyTKHbqGyE2YTKlyijWXqEaLBas-ZyzWkhNFl28wRxAEL0B3C46qQ">
+	<input type="hidden" name="Qform__FormCreated" id="Qform__FormCreated" value="1756373701.3757">
+</div>
+
+<input type="hidden" id="Qform__FormControl" name="Qform__FormControl"><input type="hidden" id="Qform__FormEvent" name="Qform__FormEvent"><input type="hidden" id="Qform__FormParameter" name="Qform__FormParameter"><input type="hidden" id="Qform__FormCallType" name="Qform__FormCallType"><input type="hidden" id="Qform__FormUpdates" name="Qform__FormUpdates"><input type="hidden" id="Qform__FormCheckableControls" name="Qform__FormCheckableControls"></form><script type="text/javascript">qc.registerForm(); if((typeof DP) == 'undefined'){ document.location.href = document.location.protocol+ '/' + document.location.host + '/my/login?redirect_url=https%3A%2F%2Fvr.au.deputy.com&redirect_to_instance=1'; }; qc.imageAssets = "https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/images"; qc.cssAssets = "https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/css"; qc.phpAssets = "/assets/php"; qc.jsAssets = "https://d2sebmzxyyulvv.cloudfront.net/8afb21e61893545eaac7dc581dac022086e3656f/js"; ; DP.mushodo.intLastCommTimestamp = 1756373701;
+DP.objLangStrings={"ROSTER":"Shift","EMPLOYEE":"Person","EMPLOYEES":"People","S_TO_S":"%s a %s","EXP_OPTIMISTIC_LOCK":"Server is busy applying your previous changes. Please try a little bit later.","TAG_LINE":"Improve Your Work World","SYSTEM_WINDOW_TITLE":"%s - Powered By Deputy.com","DISABLE":"Disable","FORM_BTN_CANCEL":"Cancel","FORM_BTN_SAVE":"Save","FORM_BTN_SEND":"Send","GLOBAL_DT_TODAY":"Today","GLOBAL_DT_YESTERDAY":"Yesterday","GLOBAL_DT_TOMORROW":"Tomorrow"}
+qc.regCA(new Array("btnLoginSubmit","recaptchaTokenTrigger","btnResetPasssword")); ; $(document).ready(function(){ ; $(document).trigger("qcloaded"); });</script>
+
+</body></html>
